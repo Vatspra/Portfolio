@@ -22,6 +22,8 @@ export default function Navbar({ activeSection }) {
 
     useEffect(() => {
         const updateIndicator = () => {
+            if (window.innerWidth <= 768) return
+
             const activeLink = document.querySelector(`.nav-link.active`)
             const menuWrapper = document.querySelector(`.nav-menu-wrapper`)
 

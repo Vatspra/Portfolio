@@ -1612,6 +1612,10 @@ ul {
     pointer-events: all;
   }
 
+  .nav-indicator {
+    display: none;
+  }
+
   .nav-toggle {
     display: block;
   }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { socialLinks } from '../data/portfolioData'
+import { scrollToSection } from '../utils/scrollUtils'
 
 const roles = ['Frontend Developer', 'Full Stack Engineer', 'AI Enthusiast']
 
@@ -29,6 +30,11 @@ export default function Hero() {
         return () => clearTimeout(timeout)
     }, [displayText, isDeleting, roleIndex])
 
+    const handleScroll = (e, id) => {
+        e.preventDefault()
+        scrollToSection(id)
+    }
+
     return (
         <section className="hero" id="home">
             <div className="hero-content">
@@ -48,8 +54,20 @@ export default function Hero() {
                         solutions that drive real business impact.
                     </p>
                     <div className="hero-cta animate-fade-up delay-4">
-                        <a href="#projects" className="btn btn-primary"><span>View My Work</span></a>
-                        <a href="#contact" className="btn btn-secondary"><span>Get In Touch</span></a>
+                        <a
+                            href="#projects"
+                            className="btn btn-primary"
+                            onClick={(e) => handleScroll(e, 'projects')}
+                        >
+                            <span>View My Work</span>
+                        </a>
+                        <a
+                            href="#contact"
+                            className="btn btn-secondary"
+                            onClick={(e) => handleScroll(e, 'contact')}
+                        >
+                            <span>Get In Touch</span>
+                        </a>
                     </div>
                     <div className="hero-social animate-fade-up delay-5">
                         <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="social-link">

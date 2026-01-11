@@ -34,8 +34,8 @@
   --radius-sm: 6px;
   --radius-md: 8px;
   --radius-lg: 12px;
-  --transition-fast: 0.15s ease;
-  --transition-normal: 0.25s ease;
+  --transition-fast: 0.3s ease;
+  --transition-normal: 0.5s cubic-bezier(0.2, 0, 0.2, 1);
 }
 
 *,
@@ -192,7 +192,7 @@ ul {
   bottom: 0;
   height: 2px;
   background: var(--indicator-color, var(--accent-primary));
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.6s cubic-bezier(0.2, 0, 0.2, 1);
   z-index: 1;
   border-radius: 2px;
 }
@@ -1486,8 +1486,8 @@ ul {
 /* Animations */
 .animate-fade-up {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(40px);
+  transition: opacity 1.2s cubic-bezier(0.2, 0, 0.2, 1), transform 1.2s cubic-bezier(0.2, 0, 0.2, 1);
 }
 
 .animate-fade-up.revealed {
@@ -1498,7 +1498,7 @@ ul {
 .animate-fade-left {
   opacity: 0;
   transform: translateX(50px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 1.2s cubic-bezier(0.2, 0, 0.2, 1), transform 1.2s cubic-bezier(0.2, 0, 0.2, 1);
 }
 
 .animate-fade-left.revealed {
@@ -1507,29 +1507,29 @@ ul {
 }
 
 .delay-1 {
-  transition-delay: 0.1s;
+  transition-delay: 0.15s;
 }
 
 .delay-2 {
-  transition-delay: 0.2s;
-}
-
-.delay-3 {
   transition-delay: 0.3s;
 }
 
+.delay-3 {
+  transition-delay: 0.45s;
+}
+
 .delay-4 {
-  transition-delay: 0.4s;
+  transition-delay: 0.6s;
 }
 
 .delay-5 {
-  transition-delay: 0.5s;
+  transition-delay: 0.75s;
 }
 
 .animate-slide-right {
   opacity: 0;
   transform: translateX(-50px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 1.2s cubic-bezier(0.2, 0, 0.2, 1), transform 1.2s cubic-bezier(0.2, 0, 0.2, 1);
 }
 
 .animate-slide-right.revealed {
@@ -1540,7 +1540,7 @@ ul {
 .animate-scale-in {
   opacity: 0;
   transform: scale(0.9);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 1.2s cubic-bezier(0.2, 0, 0.2, 1), transform 1.2s cubic-bezier(0.2, 0, 0.2, 1);
 }
 
 .animate-scale-in.revealed {

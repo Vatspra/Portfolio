@@ -59,7 +59,24 @@ export default function Navbar({ activeSection }) {
     const scrollTo = (id) => {
         const element = document.getElementById(id)
         if (element) {
-            element.scrollIntoView({ behavior: 'smooth' })
+            const navbarHeight = 80 // Adjust as per your navbar height
+            const targetPosition = element.getBoundingClientRect().top + window.pageYOffset - navbarHeight
+            const startPosition = window.pageYOffset
+            const distance = targetPosition - startPosition
+            const duration = 1000 // Duration in ms
+            let start = null
+
+            const animation = (currentTime) => {
+                if (!start) start = currentTime
+                const progress = currentTime - start
+                const easedProgress = easeInOutQuart(progress / duration)
+                window.scrollTo(0, startPosition + distance * easedProgress)
+                if (progress < duration) requestAnimationFrame(animation)
+            }
+
+            const easeInOutQuart = (t) => t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2
+
+            requestAnimationFrame(animation)
             setIsMenuOpen(false)
         }
     }
